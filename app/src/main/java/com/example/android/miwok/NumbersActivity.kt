@@ -26,7 +26,17 @@ class NumbersActivity : AppCompatActivity() {
         setContentView(R.layout.activity_numbers)
 
         // Create an array of words
-        val words: Array<String> = arrayOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten")
+        var words: ArrayList<String> = ArrayList(10)
+        words.add("one")
+        words.add("two")
+        words.add("three")
+        words.add("four")
+        words.add("five")
+        words.add("six")
+        words.add("seven")
+        words.add("eight")
+        words.add("nine")
+        words.add("ten")
 
         Log.v("NumbersActivity", "Word at index 0: " + words[0])
         Log.v("NumbersActivity", "Word at index 9: " + words[9])
