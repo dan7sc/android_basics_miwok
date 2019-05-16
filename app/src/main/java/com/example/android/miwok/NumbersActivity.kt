@@ -18,6 +18,8 @@ package com.example.android.miwok
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
+import android.widget.TextView
 
 class NumbersActivity : AppCompatActivity() {
 
@@ -37,6 +39,17 @@ class NumbersActivity : AppCompatActivity() {
         words.add("eight")
         words.add("nine")
         words.add("ten")
+
+        // Find the root view of the whole layout
+        var rootView: LinearLayout = findViewById(R.id.rootView) as LinearLayout
+        for (index: Int in words.indices) {
+            // Create a new TextView
+            var wordView: TextView = TextView(this)
+            // Set the text to be word at the current index
+            wordView.setText(words.get(index))
+            // Add this TextView as another child to the root view of this layout
+            rootView.addView(wordView)
+        }
 
         Log.v("NumbersActivity", "Word at index 0: " + words[0])
         Log.v("NumbersActivity", "Word at index 9: " + words[9])
