@@ -17,11 +17,18 @@ package com.example.android.miwok
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 class NumbersActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_numbers)
+
+        // Create an array of words
+        val words: Array<String> = arrayOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten")
+
+        Log.v("NumbersActivity", "Word at index 0: " + words[0])
+        Log.v("NumbersActivity", "Word at index 9: " + words[9])
     }
 }
