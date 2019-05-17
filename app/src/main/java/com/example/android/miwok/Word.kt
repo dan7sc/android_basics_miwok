@@ -22,6 +22,13 @@ package com.example.android.miwok
 
 
 class Word constructor(defaultTranslation: String, miwokTranslation: String){
+    /**
+     * Cosntructor creates a new Word object.
+     *
+     * @param defaultTranslation is the word in a language that the user is already familiar with
+     * (such as English)
+     * @param miwokTranslation is the word in the Miwok language
+     */
 
     /** Default translation for the word  */
     private var mDefaultTranslation: String = ""
@@ -30,21 +37,11 @@ class Word constructor(defaultTranslation: String, miwokTranslation: String){
     private var mMiwokTranslation: String = ""
 
     /**
-     * Create a new Word object.
-     *
-     * @param defaultTranslation is the word in a language that the user is already familiar with
-     * (such as English)
-     * @param miwokTranslation is the word in the Miwok language
-     */
-
-
-    /**
      * Get the default translation of the word.
      */
     fun getDefaultTranslation(): String {
         return this.mDefaultTranslation
     }
-
 
     /**
      * Get the Miwok translation of the word.
