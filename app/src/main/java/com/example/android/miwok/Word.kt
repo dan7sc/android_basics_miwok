@@ -19,7 +19,9 @@ package com.example.android.miwok
  * [Word] represents a vocabulary word that the user wants to learn.
  * It contains a default translation and a Miwok translation for that word.
  */
-class Word {
+
+
+class Word constructor(defaultTranslation: String, miwokTranslation: String){
 
     /** Default translation for the word  */
     private var mDefaultTranslation: String = ""
@@ -35,11 +37,6 @@ class Word {
      * @param miwokTranslation is the word in the Miwok language
      */
 
-
-    fun Word(defaultTranslation: String, miwokTranslation: String) {
-        this.mDefaultTranslation = defaultTranslation
-        this.mMiwokTranslation = miwokTranslation
-    }
 
     /**
      * Get the default translation of the word.

@@ -27,18 +27,19 @@ class NumbersActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_numbers)
 
-        // Create an array of words
-        val words: ArrayList<String> = ArrayList(10)
-        words.add("one")
-        words.add("two")
-        words.add("three")
-        words.add("four")
-        words.add("five")
-        words.add("six")
-        words.add("seven")
-        words.add("eight")
-        words.add("nine")
-        words.add("ten")
+        // Create a list of words
+        val words = ArrayList<Word>()
+
+        words.add(Word("one", "lutti"))
+        words.add(Word("two", "otiiko"))
+        words.add(Word("three", "tolookosu"))
+        words.add(Word("four", "oyyisa"))
+        words.add(Word("five", "massokka"))
+        words.add(Word("six", "temmokka"))
+        words.add(Word("seven", "kenekaku"))
+        words.add(Word("eight", "kawinta"))
+        words.add(Word("nine", "wo’e"))
+        words.add(Word("ten", "na’aacha"))
 
 
         // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
