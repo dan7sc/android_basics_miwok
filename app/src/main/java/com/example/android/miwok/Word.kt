@@ -31,10 +31,10 @@ class Word constructor(defaultTranslation: String, miwokTranslation: String){
      */
 
     /** Default translation for the word  */
-    private var mDefaultTranslation: String = ""
+    private var mDefaultTranslation: String = defaultTranslation
 
     /** Miwok translation for the word  */
-    private var mMiwokTranslation: String = ""
+    private var mMiwokTranslation: String = miwokTranslation
 
     /**
      * Get the default translation of the word.
