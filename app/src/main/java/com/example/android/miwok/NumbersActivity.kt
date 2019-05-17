@@ -28,7 +28,7 @@ class NumbersActivity : AppCompatActivity() {
         setContentView(R.layout.activity_numbers)
 
         // Create an array of words
-        var words: ArrayList<String> = ArrayList(10)
+        val words: ArrayList<String> = ArrayList(10)
         words.add("one")
         words.add("two")
         words.add("three")
