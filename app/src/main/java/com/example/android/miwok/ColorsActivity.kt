@@ -30,10 +30,10 @@ class ColorsActivity : AppCompatActivity() {
         // Create a list of words
         val words = ArrayList<Word>()
 
-        words.add(Word("red", "wetetti"))
+        words.add(Word("red", "weṭeṭṭi"))
         words.add(Word("green", "chokokki"))
         words.add(Word("brown", "ṭakaakki"))
-        words.add(Word("gray", "topoppi"))
+        words.add(Word("gray", "ṭopoppi"))
         words.add(Word("black", "kululli"))
         words.add(Word("white", "kelelli"))
         words.add(Word("dusty yellow", "ṭopiisә"))
