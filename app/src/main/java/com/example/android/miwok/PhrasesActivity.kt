@@ -29,16 +29,16 @@ class PhrasesActivity : AppCompatActivity() {
         // Create a list of words
         val words = ArrayList<Word>()
 
-        words.add(Word("Where are you going?", "minto wuksus"))
-        words.add(Word("What is your name?", "tinnә oyaase'nә"))
-        words.add(Word("My name is...", "oyaaset..."))
-        words.add(Word("How are you feeling?", "michәksәs?"))
-        words.add(Word("I’m feeling good.", "kuchi achit"))
-        words.add(Word("Are you coming?", "әәnәs'aa?"))
-        words.add(Word("Yes, I’m coming.", "hәә’ әәnәm"))
-        words.add(Word("I’m coming.", "әәnәm"))
-        words.add(Word("Let’s go.", "yoowutis"))
-        words.add(Word("Come here.", "әnni'nem"))
+        words.add(Word("Where are you going?", "minto wuksus", 0))
+        words.add(Word("What is your name?", "tinnә oyaase'nә", 0))
+        words.add(Word("My name is...", "oyaaset...", 0))
+        words.add(Word("How are you feeling?", "michәksәs?", 0))
+        words.add(Word("I’m feeling good.", "kuchi achit", 0))
+        words.add(Word("Are you coming?", "әәnәs'aa?", 0))
+        words.add(Word("Yes, I’m coming.", "hәә’ әәnәm", 0))
+        words.add(Word("I’m coming.", "әәnәm", 0))
+        words.add(Word("Let’s go.", "yoowutis", 0))
+        words.add(Word("Come here.", "әnni'nem", 0))
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.

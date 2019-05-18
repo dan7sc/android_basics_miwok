@@ -21,7 +21,7 @@ package com.example.android.miwok
  */
 
 
-class Word constructor(defaultTranslation: String, miwokTranslation: String, imageResourceId: Int? = null){
+class Word constructor(defaultTranslation: String, miwokTranslation: String, imageResourceId: Int){
     /**
      * Cosntructor creates a new Word object.
      *
@@ -38,7 +38,7 @@ class Word constructor(defaultTranslation: String, miwokTranslation: String, ima
     private var mMiwokTranslation: String = miwokTranslation
 
     /** Image resource ID for the words */
-    private var mImageResourceId: Int? = imageResourceId
+    private var mImageResourceId: Int = imageResourceId
 
     /**
      * Get the default translation of the word.
@@ -57,7 +57,7 @@ class Word constructor(defaultTranslation: String, miwokTranslation: String, ima
     /**
      * Get the image resource ID of the word.
      */
-    fun getImageResourceId(): Int? {
+    fun getImageResourceId(): Int {
         return this.mImageResourceId
     }
 
