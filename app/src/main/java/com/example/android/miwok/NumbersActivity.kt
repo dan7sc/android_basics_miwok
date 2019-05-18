@@ -24,7 +24,7 @@ class NumbersActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.word_list)
+        setContentView(R.layout.activity_numbers)
 
         // Create a list of words
         val words = ArrayList<Word>()
