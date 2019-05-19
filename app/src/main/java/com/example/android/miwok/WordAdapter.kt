@@ -16,6 +16,7 @@
 package com.example.android.miwok
 
 import android.content.Context
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,8 +35,11 @@ class WordAdapter
  *
  * @param context is the current context (i.e. Activity) that the adapter is being created in.
  * @param words is the list of [Word]s to be displayed.
+ * @param colorResourceId is the resource ID for the background color for this list of words
  */
-(context: Context, words: ArrayList<Word>) : ArrayAdapter<Word>(context, 0, words) {
+(context: Context, words: ArrayList<Word>,
+ /** Resource ID for the background color for this list of words  */
+ private val mColorResourceId: Int) : ArrayAdapter<Word>(context, 0, words) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         // Check if an existing view is being reused, otherwise inflate the view
@@ -72,6 +76,13 @@ class WordAdapter
             // Otherwise hide the ImageView (set visibility to GONE)
             imageView.visibility = View.GONE
         }
+
+        // Set the theme color for the list item
+        val textContainer = listItemView.findViewById<View>(R.id.text_container)
+        // Find the color that the resource ID maps to
+        val color = ContextCompat.getColor(context, mColorResourceId)
+        // Set the background color of the text container View
+        textContainer.setBackgroundColor(color)
 
         // Return the whole list item layout (containing 2 TextViews) so that it can be shown in
         // the ListView.
