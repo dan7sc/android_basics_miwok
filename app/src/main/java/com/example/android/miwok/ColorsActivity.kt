@@ -15,12 +15,19 @@
  */
 package com.example.android.miwok
 
-import android.support.v7.app.AppCompatActivity
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 
+import java.util.ArrayList
 
 class ColorsActivity : AppCompatActivity() {
+
+    /** Handles playback of all the sound files  */
+    private var mMediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,16 +35,16 @@ class ColorsActivity : AppCompatActivity() {
 
         // Create a list of words
         val words = ArrayList<Word>()
-
-        words.add(Word("red", "weṭeṭṭi", R.drawable.color_red))
-        words.add(Word("green", "chokokki", R.drawable.color_green))
-        words.add(Word("brown", "ṭakaakki", R.drawable.color_brown))
-        words.add(Word("gray", "ṭopoppi", R.drawable.color_gray))
-        words.add(Word("black", "kululli", R.drawable.color_black))
-        words.add(Word("white", "kelelli", R.drawable.color_white))
-        words.add(Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow))
-        words.add(Word("mustartd yellow", "chiwiiṭә", R.drawable.color_mustard_yellow))
-
+        words.add(Word("red", "weṭeṭṭi", R.drawable.color_red, R.raw.color_red))
+        words.add(Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow,
+                R.raw.color_mustard_yellow))
+        words.add(Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow,
+                R.raw.color_dusty_yellow))
+        words.add(Word("green", "chokokki", R.drawable.color_green, R.raw.color_green))
+        words.add(Word("brown", "ṭakaakki", R.drawable.color_brown, R.raw.color_brown))
+        words.add(Word("gray", "ṭopoppi", R.drawable.color_gray, R.raw.color_gray))
+        words.add(Word("black", "kululli", R.drawable.color_black, R.raw.color_black))
+        words.add(Word("white", "kelelli", R.drawable.color_white, R.raw.color_white))
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -45,11 +52,24 @@ class ColorsActivity : AppCompatActivity() {
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // activity_numbers.xml layout file.
-        val listView = findViewById(R.id.list) as ListView?
+        // word_list.xml layout file.
+        val listView = findViewById<View>(R.id.list) as ListView
 
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
-        listView!!.setAdapter(adapter);
+        listView.adapter = adapter
+
+        // Set a click listener to play the audio when the list item is clicked on
+        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+            // Get the {@link Word} object at the given position the user clicked on
+            val word = words[position]
+
+            // Create and setup the {@link MediaPlayer} for the audio resource associated
+            // with the current word
+            mMediaPlayer = MediaPlayer.create(this@ColorsActivity, word.getAudioResourceId())
+
+            // Start the audio file
+            mMediaPlayer!!.start()
+        }
     }
 }

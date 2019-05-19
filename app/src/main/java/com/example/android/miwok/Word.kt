@@ -25,19 +25,28 @@ class Word {
     /**
      * Get the default translation of the word.
      */
-    private var mDefaultTranslation: String = ""
+    var mDefaultTranslation: String? = null
+        private set
 
     /** Miwok translation for the word  */
     /**
      * Get the Miwok translation of the word.
      */
-    private var mMiwokTranslation: String = ""
+    var mMiwokTranslation: String? = null
+        private set
+
+    /** Audio resource ID for the word  */
+    /**
+     * Return the audio resource ID of the word.
+     */
+    var mAudioResourceId: Int = 0
+        private set
 
     /** Image resource ID for the word  */
     /**
      * Return the image resource ID of the word.
      */
-    private var mImageResourceId = NO_IMAGE_PROVIDED
+    var mImageResourceId = NO_IMAGE_PROVIDED
 
     /**
      * Create a new Word object.
@@ -45,10 +54,12 @@ class Word {
      * @param defaultTranslation is the word in a language that the user is already familiar with
      * (such as English)
      * @param miwokTranslation is the word in the Miwok language
+     * @param audioResourceId is the resource ID for the audio file associated with this word
      */
-    constructor(defaultTranslation: String, miwokTranslation: String) {
+    constructor(defaultTranslation: String, miwokTranslation: String, audioResourceId: Int) {
         this.mDefaultTranslation = defaultTranslation
         this.mMiwokTranslation = miwokTranslation
+        this.mAudioResourceId = audioResourceId
     }
 
     /**
@@ -58,24 +69,27 @@ class Word {
      * (such as English)
      * @param miwokTranslation is the word in the Miwok language
      * @param imageResourceId is the drawable resource ID for the image associated with the word
+     * @param audioResourceId is the resource ID for the audio file associated with this word
      */
-    constructor(defaultTranslation: String, miwokTranslation: String, imageResourceId: Int) {
+    constructor(defaultTranslation: String, miwokTranslation: String, imageResourceId: Int,
+                audioResourceId: Int) {
         this.mDefaultTranslation = defaultTranslation
         this.mMiwokTranslation = miwokTranslation
         this.mImageResourceId = imageResourceId
+        this.mAudioResourceId = audioResourceId
     }
 
     /**
      * Get the default translation of the word.
      */
-    fun getDefaultTranslation(): String {
+    fun getDefaultTranslation(): String? {
         return mDefaultTranslation
     }
 
     /**
      * Get the Miwok translation of the word.
      */
-    fun getMiwokTranslation(): String {
+    fun getMiwokTranslation(): String? {
         return mMiwokTranslation
     }
 
@@ -93,9 +107,16 @@ class Word {
         return mImageResourceId != NO_IMAGE_PROVIDED
     }
 
+    /**
+     * Return the audio resource ID of the word.
+     */
+    fun getAudioResourceId(): Int {
+        return mAudioResourceId
+    }
+
     companion object {
 
         /** Constant value that represents no image was provided for this word  */
-        private var NO_IMAGE_PROVIDED = -1
+        private val NO_IMAGE_PROVIDED = -1
     }
 }
